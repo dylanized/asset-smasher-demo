@@ -3,10 +3,12 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+	<%- css_asset('test.css') %>
+	<%- js_asset('head.js') %>
   </head>
   <body>
-	<%- js_asset('head.js') %>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+	<%- js_asset('footer.js') %>
   </body>
 </html>
