@@ -14,10 +14,18 @@ var app = express();
 
 // load asset smmasher    
 app.use(smasher.middleware({
+  serve: true,
+  paths: [path.join(__dirname, 'assets')],
+  prefix: '',
+  outputTo: path.join(__dirname, 'foo')
+}));
+/*
+app.use(smasher.middleware({
   serve: false,
   prefix: 'tmp',
   assetMapLocation: path.join(__dirname, 'public/tmp/map.json')
 }));
+*/
 
 // all environments
 app.set('port', process.env.PORT || 3000);

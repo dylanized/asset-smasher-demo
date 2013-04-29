@@ -1,1 +1,0 @@
-console.log("head1"),console.log("head2");
