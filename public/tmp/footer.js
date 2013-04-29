@@ -1,0 +1,1 @@
+console.log("footer1"),console.log("footer2"),console.log("footer3"),console.log("footer4");
