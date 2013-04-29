@@ -10,8 +10,14 @@ var express = require('express')
   , path = require('path')
   , smasher = require('asset-smasher');
  
-
 var app = express();
+
+// load asset smmasher    
+app.use(smasher.middleware({
+  serve: false,
+  prefix: 'tmp',
+  assetMapLocation: path.join(__dirname, 'public/tmp/map.json')
+}));
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -23,15 +29,6 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-
-  
-  
- app.use(smasher.middleware({
-  serve: false,
-  prefix: '',
-  assetMapLocation: path.join(__dirname, 'public/tmp/map.json')
-}));
-
 
 // development only
 if ('development' == app.get('env')) {
