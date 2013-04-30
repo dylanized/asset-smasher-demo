@@ -13,19 +13,20 @@ var express = require('express')
 var app = express();
 
 // load asset smmasher    
-app.use(smasher.middleware({
-  serve: true,
-  paths: [path.join(__dirname, 'assets')],
-  prefix: '',
-  outputTo: path.join(__dirname, 'foo')
-}));
-/*
-app.use(smasher.middleware({
-  serve: false,
-  prefix: 'tmp',
-  assetMapLocation: path.join(__dirname, 'public/tmp/map.json')
-}));
-*/
+if ('development' == app.get('env')) {
+	app.use(smasher.middleware({
+	  serve: true,
+	  paths: [path.join(__dirname, 'assets')],
+	  prefix: '',									// no prefix because the mf folders are one level deep
+	  outputTo: path.join(__dirname, 'foo')			// what does this do?
+	}));
+} else {
+	app.use(smasher.middleware({
+	  serve: false,
+	  prefix: 'tmp',
+	  assetMapLocation: path.join(__dirname, 'public/tmp/map.json')
+	}));
+}
 
 // all environments
 app.set('port', process.env.PORT || 3000);

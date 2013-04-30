@@ -1,0 +1,12 @@
+div {
+  background-img: url(css3);
+}
+.box {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.box div {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
